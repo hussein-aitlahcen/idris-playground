@@ -20,7 +20,6 @@
 module Isomorphism
 
 import Control.Isomorphism
-import Data.String
 
 %default total
 
