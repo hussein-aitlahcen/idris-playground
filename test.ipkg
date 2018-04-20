@@ -1,0 +1,16 @@
+package test
+
+version    = 0.0.1
+brief      = "Initial project template from idringen"
+
+author     = Hussein Ait Lahcen <hussein.aitlahcen@gmail.com>
+license    = BSD3
+homepage   = https://github.com/githubuser/test
+sourceloc  = git@github.com:githubuser/test.git
+bugtracker = https://github.com/githubuser/test/issues
+
+sourcedir  = src
+modules    = Test
+tests      = Test.spec
+executable = test
+main       = Main
