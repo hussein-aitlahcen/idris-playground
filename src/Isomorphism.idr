@@ -30,24 +30,22 @@ data U = UU B
 
 isoTU : Iso T U
 isoTU = MkIso f g gf fg
-where
-  f : T -> U
-  f (TT True)  = UU One
-  f (TT False) = UU Zero
+  where
+    f : T -> U
+    f (TT True)  = UU One
+    f (TT False) = UU Zero
 
-  g : U -> T
-  g (UU One)  = TT True
-  g (UU Zero) = TT False
+    g : U -> T
+    g (UU One)  = TT True
+    g (UU Zero) = TT False
 
-  fg : (t : T) -> g (f t) = t
-  fg (TT x) with (g (f (TT x)))
-    fg (TT x) | (TT x) = Refl
+    fg : (t : T) -> g (f t) = t
+    fg (TT True)  = Refl
+    fg (TT False) = Refl
 
-  gf : (u : U) -> f (g u) = u
-  gf (UU One) with (f (g (UU One)))
-    gf (UU One) | (UU x) = Refl
-  gf (UU Zero) with (f (g (UU Zero)))
-    gf (UU Zero) | (UU x) = Refl
+    gf : (u : U) -> f (g u) = u
+    gf (UU Zero) = Refl
+    gf (UU One)  = Refl
 
 x : T
 x = TT False
@@ -59,3 +57,4 @@ main : IO ()
 main = case y of
   (UU Zero) => putStrLn "Dude ZERO"
   (UU One)  => putStrLn "Dude ONE"
+
